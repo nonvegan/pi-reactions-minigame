@@ -70,8 +70,6 @@ class Game {
   }
 
   next() {
-    this.player.score++;
-    this.player.speed += 0.1;
     this.player.x = 0;
     let prevKey = this.target.key;
     do {
@@ -84,6 +82,8 @@ class Game {
   input(key) {
     if (this.playing && !isNaN(parseInt(key))) {
       if (key == this.target.key && this.player.x > this.target.a && this.player.x < this.target.b) {
+            this.player.score++;
+            this.player.speed += 0.1;
         this.next();
       } else {
         this.playing = false;
