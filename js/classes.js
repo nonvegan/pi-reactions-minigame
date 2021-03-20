@@ -12,7 +12,7 @@ class Game {
       score: 0,
       color: "#f92672",
     };
-    const a = getRandomFloat(Math.PI / 6, (4 * Math.PI) / 3);
+    const a = getRandomFloat(Math.PI / 3, (4 * Math.PI) / 3);
     this.target = {
       a: a,
       b: a + getRandomFloat(Math.PI / 6, Math.PI / 3),
@@ -75,7 +75,7 @@ class Game {
     do {
       this.target.key = getRandomInt(1, this.maxKeys);
     } while (prevKey == this.target.key);
-    this.target.a = getRandomFloat(Math.PI / 6, (4 * Math.PI) / 3);
+    this.target.a = getRandomFloat(Math.PI / 3, (4 * Math.PI) / 3);
     this.target.b = this.target.a + getRandomFloat(Math.PI / 6, Math.PI / 3);
   }
 
