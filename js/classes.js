@@ -8,11 +8,11 @@ class Game {
     this.bgColor = "#21252b";
     this.player = {
       x: 0,
-      speed: 1,
+      speed: Math.log(3),
       score: 0,
       color: "#f92672",
     };
-    const a = getRandomFloat(Math.PI / 6, (4 * Math.PI) / 3);
+    const a = getRandomFloat(Math.PI / 3, (4 * Math.PI) / 3);
     this.target = {
       a: a,
       b: a + getRandomFloat(Math.PI / 6, Math.PI / 3),
@@ -55,7 +55,7 @@ class Game {
 
   update() {
     if (this.playing) {
-      this.player.x += this.player.speed / 100;
+      this.player.x += this.player.speed / 120;
       if (this.player.x > 2 * Math.PI) {
         this.playing = false;
       }
@@ -65,7 +65,7 @@ class Game {
   reset() {
     this.playing = true;
     this.player.score = 0;
-    this.player.speed = 1;
+    this.player.speed = Math.log(3);
     this.next();
   }
 
@@ -75,7 +75,7 @@ class Game {
     do {
       this.target.key = getRandomInt(1, this.maxKeys);
     } while (prevKey == this.target.key);
-    this.target.a = getRandomFloat(Math.PI / 6, (4 * Math.PI) / 3);
+    this.target.a = getRandomFloat(Math.PI / 3, (4 * Math.PI) / 3);
     this.target.b = this.target.a + getRandomFloat(Math.PI / 6, Math.PI / 3);
   }
 
@@ -83,7 +83,7 @@ class Game {
     if (this.playing && !isNaN(parseInt(key))) {
       if (key == this.target.key && this.player.x > this.target.a && this.player.x < this.target.b) {
         this.player.score++;
-        this.player.speed += 0.05;
+        this.player.speed = Math.log(this.player.score + 3);
         this.next();
       } else {
         this.playing = false;
