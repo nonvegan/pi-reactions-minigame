@@ -55,7 +55,7 @@ class Game {
 
   update() {
     if (this.playing) {
-      this.player.x += this.player.speed / 120;
+      this.player.x += this.player.speed / 125;
       if (this.player.x > 2 * Math.PI) {
         this.playing = false;
       }
